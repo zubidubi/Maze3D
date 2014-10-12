@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEditor;
 
 public class GameManager : MonoBehaviour
 {
@@ -52,6 +53,19 @@ public class GameManager : MonoBehaviour
         mazeInstanceFloor.borrarParedCentralFija();
         mazeInstanceFloor.borrarParedAleatoria();
         mazeInstanceFloor.borrarParedAleatoria();
+
+
+        Object prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/GravityChanger.prefab", typeof(GameObject));
+        for (int i = 0; i < 10; i++)
+        {
+            GameObject clone = Instantiate(prefab) as GameObject;
+            mazeInstanceFloor.ponerElementoEnLugarAleatorio(clone);
+        }
+        for (int i = 0; i < 10; i++)
+        {
+            GameObject clone = Instantiate(prefab) as GameObject;
+            mazeInstanceCeil.ponerElementoEnLugarAleatorio(clone);
+        }
     }
 
     private void RestartGame() 
@@ -61,4 +75,6 @@ public class GameManager : MonoBehaviour
         Destroy(mazeInstanceCeil.gameObject);
         BeginGame();
     }
+
+
 }

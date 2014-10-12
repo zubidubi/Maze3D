@@ -23,14 +23,17 @@ public class Maze : MonoBehaviour {
     private MazePos mazePos;
 
     List<Vector2> erasedWalls;
+    List<Vector2> cellsWithElement;
     Maze(MazePos mazePos)
     {
         erasedWalls = new List<Vector2>();
+        cellsWithElement = new List<Vector2>();
         this.mazePos = mazePos;
     }
     Maze()
     {
         erasedWalls = new List<Vector2>();
+        cellsWithElement = new List<Vector2>();
     }
 
 	// Use this for initialization
@@ -216,5 +219,22 @@ public class Maze : MonoBehaviour {
                 break;
         }
         eraseWall(x, y);
+    }
+
+    internal void ponerElementoEnLugarAleatorio(GameObject gameObject)
+    {
+        System.Random rnd = new System.Random();
+        int x = 0;
+        int z = 0;
+        do
+        {
+            x = rnd.Next(0, size.x);
+            z = rnd.Next(0, size.z);
+        }
+        while (cellsWithElement.FindAll(cell => cell.x == x && cell.y == z).Count != 0);
+        Debug.Log("valores " + x + "  " + z);
+        gameObject.transform.position = cells[x, z].transform.position;
+        gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.5f * (int)mazePos, gameObject.transform.position.z);
+        cellsWithElement.Add(new Vector2(x, z));
     }
 }

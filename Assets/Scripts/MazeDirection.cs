@@ -11,8 +11,8 @@ public enum MazeDirection
 
 public enum MazePos
 {
-    Floor,
-    Ceil
+    Floor = 1,
+    Ceil = -1
 }
 
 public static class MazeDirections
