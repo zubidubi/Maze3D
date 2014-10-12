@@ -92,7 +92,7 @@ public class ChController : MonoBehaviour {
 
     void Movement()
     {
-        if ( (Input.GetAxis("Horizontal") == 0 ) || (Input.GetAxis("Vertical") == 0))
+        if ((Input.GetAxis("Horizontal") != 0) || (Input.GetAxis("Vertical") != 0))
         {
             CPrefab.transform.rotation = Quaternion.Lerp(CPrefab.transform.rotation, this.transform.rotation, Time.deltaTime * 8f);
             //CPrefab.transform.rotation = this.transform.rotation;
