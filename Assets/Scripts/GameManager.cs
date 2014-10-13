@@ -66,6 +66,7 @@ public class GameManager : MonoBehaviour
             GameObject clone = Instantiate(prefab) as GameObject;
             mazeInstanceCeil.ponerElementoEnLugarAleatorio(clone);
         }
+        mazeInstanceFloor.crearPasillos();
     }
 
     private void RestartGame() 

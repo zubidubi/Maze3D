@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using UnityEditor;
 
 public class Maze : MonoBehaviour {
 
@@ -219,6 +220,51 @@ public class Maze : MonoBehaviour {
                 break;
         }
         eraseWall(x, y);
+    }
+
+    internal void crearPasillos()
+    {
+        UnityEngine.Object prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Pasillo.prefab", typeof(GameObject));
+        List<GameObject> pasillos = new List<GameObject>();
+        
+        foreach (Vector2 coord in erasedWalls)
+        {
+            Debug.Log(coord);
+            if (coord == erasedWalls[0])
+                continue;
+            MazeCell celda = cells[(int)coord.x, (int)coord.y];
+            GameObject pasillo = Instantiate(prefab) as GameObject;
+            MazeDirection direc;
+            if (coord.x == 0)
+                direc = MazeDirection.West;
+            else if (coord.x == size.x-1)
+                direc = MazeDirection.East;
+            else if (coord.y == 0)
+                direc = MazeDirection.South;
+            else
+                direc = MazeDirection.North;
+
+
+            if (direc == MazeDirection.North)
+            {
+                pasillo.transform.Rotate(0, 90, 0);
+                pasillo.transform.position = new Vector3(celda.transform.position.x - 0.5f, pasillo.transform.position.y, celda.transform.position.z + 0.76f);
+            }
+            else if (direc == MazeDirection.East)
+            {
+                pasillo.transform.Rotate(0, 180, 0);
+                pasillo.transform.position = new Vector3(celda.transform.position.x + 0.76f, pasillo.transform.position.y, celda.transform.position.z + 0.5f);
+            }
+            else if (direc == MazeDirection.South)
+            {
+                pasillo.transform.position = new Vector3(celda.transform.position.x + 0.5f, pasillo.transform.position.y, celda.transform.position.z - 0.76f);
+                pasillo.transform.Rotate(0, 270, 0);
+            }
+            else
+                pasillo.transform.position = new Vector3(celda.transform.position.x -0.76f, pasillo.transform.position.y, celda.transform.position.z - 0.5f);
+                //cells[coord.x, coord.y].transform.position
+                pasillos.Add(pasillo);
+        }
     }
 
     internal void ponerElementoEnLugarAleatorio(GameObject gameObject)
