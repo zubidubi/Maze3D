@@ -23,7 +23,7 @@ public class Maze : MonoBehaviour {
 
     private MazePos mazePos;
 
-    List<Vector2> erasedWalls;
+    public List<Vector2> erasedWalls;
     List<Vector2> cellsWithElement;
     Maze(MazePos mazePos)
     {
@@ -190,31 +190,31 @@ public class Maze : MonoBehaviour {
         erasedWalls.Add(new Vector2(x, y));
     }
     
-    internal void borrarParedAleatoria()
+    internal void borrarParedAleatoria(MazeDirection direccion)
     {
         System.Random rnd = new System.Random();
-        int valorAFijar = rnd.Next(1, 4);//rnd.Next(0, 4);
         int x = 0;
         int y = 0;
         do
         {
-            x = rnd.Next(0, size.x);
-            y = rnd.Next(0, size.z);
+            x = rnd.Next(size.x/4, 3*size.x/4);
+            y = rnd.Next(size.z/4, 3*size.z/4);
         }
         while(erasedWalls.FindAll(pared => pared.x == x && pared.y == y).Count != 0);
 
-        switch (valorAFijar)
+        switch (direccion)
         {
-            case 0:
+            // Entrada
+            case MazeDirection.West:
                 x = 0;
-                break;
-            case 1:
+                return;
+            case MazeDirection.East:
                 x= size.x-1;
                 break;
-            case 2:
+            case MazeDirection.South:
                 y =0;
                 break;
-            case 3:
+            case MazeDirection.North:
             default:
                 y=size.z-1;
                 break;
@@ -282,5 +282,20 @@ public class Maze : MonoBehaviour {
         gameObject.transform.position = cells[x, z].transform.position;
         gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.5f * (int)mazePos, gameObject.transform.position.z);
         cellsWithElement.Add(new Vector2(x, z));
+    }
+
+
+    internal void borrarParedUnidaACentral(Vector2 vector2, MazeDirection direction)
+    {
+        //case MazeDirection.North:
+        if(vector2.y == 0)
+            eraseWall((int)vector2.x, (int)size.z-1);
+        else if(vector2.y == size.z-1)
+            eraseWall((int)vector2.x, 0);
+        else if (vector2.x == size.x-1)
+            eraseWall(0, (int)vector2.y);
+        //
+        
+
     }
 }

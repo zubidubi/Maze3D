@@ -1,20 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
 
     public Maze mazePrefab;
 
-    private Maze mazeInstanceFloor;
+    private List<Maze> mazeInstancesFloor;
     private Maze mazeInstanceCeil;
 
     int seconds = 120;
     GUIText textMesh;
     private void Start()
     {
-         
+        mazeInstancesFloor = new List<Maze>();
         textMesh = GameObject.FindGameObjectWithTag("timer").GetComponent<GUIText>();
         textMesh.text = seconds.ToString();
         BeginGame();
@@ -40,39 +41,49 @@ public class GameManager : MonoBehaviour
 
     private void BeginGame() 
     {
-        mazeInstanceFloor = Instantiate(mazePrefab) as Maze;
-        mazeInstanceFloor.Generate(MazePos.Floor);
+        for(int i=0; i<4; i++)
+        { 
+            mazeInstancesFloor.Add((Instantiate(mazePrefab) as Maze));
+            mazeInstancesFloor[i].Generate(MazePos.Floor);
+        }
 
-        //mazeInstanceCeil = Instantiate(mazePrefab) as Maze;
-        //mazeInstanceCeil.Generate(MazePos.Ceil);
-        //StartCoroutine(mazeInstanceCeil.Generate());
+        mazeInstancesFloor[0].borrarParedCentralFija();
+        mazeInstancesFloor[0].borrarParedAleatoria(MazeDirection.East);
+        mazeInstancesFloor[0].borrarParedAleatoria(MazeDirection.South);
+        mazeInstancesFloor[0].borrarParedAleatoria(MazeDirection.North);
 
-        //mazeInstanceCeil.transform.Translate(new Vector3(0, 5, 0));
+        mazeInstancesFloor[1].transform.position = new Vector3(mazeInstancesFloor[1].transform.position.x + 26, mazeInstancesFloor[1].transform.position.y, mazeInstancesFloor[1].transform.position.z);
+        mazeInstancesFloor[1].borrarParedUnidaACentral(mazeInstancesFloor[0].erasedWalls[0], MazeDirection.North);
+        mazeInstancesFloor[2].transform.position = new Vector3(mazeInstancesFloor[2].transform.position.x, mazeInstancesFloor[2].transform.position.y, mazeInstancesFloor[2].transform.position.z + 26);
+        mazeInstancesFloor[2].borrarParedUnidaACentral(mazeInstancesFloor[0].erasedWalls[1], MazeDirection.East);
+        mazeInstancesFloor[3].transform.position = new Vector3(mazeInstancesFloor[3].transform.position.x, mazeInstancesFloor[3].transform.position.y, mazeInstancesFloor[3].transform.position.z - 26);
+        mazeInstancesFloor[3].borrarParedUnidaACentral(mazeInstancesFloor[0].erasedWalls[2], MazeDirection.South);
+        
         //mazeInstanceCeil.transform.Rotate(transform.right, 180f);
 
-        mazeInstanceFloor.borrarParedCentralFija();
-        mazeInstanceFloor.borrarParedAleatoria();
-        mazeInstanceFloor.borrarParedAleatoria();
 
 
         Object prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Battery.prefab", typeof(GameObject));
         for (int i = 0; i < 10; i++)
         {
-            GameObject clone = Instantiate(prefab) as GameObject;
-            mazeInstanceFloor.ponerElementoEnLugarAleatorio(clone);
+            foreach (Maze maze in mazeInstancesFloor)
+            {
+                GameObject clone = Instantiate(prefab) as GameObject;
+                maze.ponerElementoEnLugarAleatorio(clone);
+            }
         }
         for (int i = 0; i < 10; i++)
         {
             //GameObject clone = Instantiate(prefab) as GameObject;
             //mazeInstanceCeil.ponerElementoEnLugarAleatorio(clone);
         }
-        mazeInstanceFloor.crearPasillos();
+        mazeInstancesFloor[0].crearPasillos();
     }
 
     private void RestartGame() 
     {
         StopAllCoroutines();
-        Destroy(mazeInstanceFloor.gameObject);
+        Destroy(mazeInstancesFloor[0].gameObject);
         //Destroy(mazeInstanceCeil.gameObject);
         BeginGame();
     }
