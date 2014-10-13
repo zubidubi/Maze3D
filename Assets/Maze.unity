@@ -10792,50 +10792,12 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-<<<<<<< HEAD
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -619905303, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
---- !u!4 &643747760
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 643747756}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
---- !u!1 &652010434
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 652010436}
-  - 114: {fileID: 652010435}
-  m_Layer: 0
-  m_Name: MazePassage
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &652010435
-MonoBehaviour:
-=======
   serializedVersion: 2
   m_SmoothSphereCollisions: 0
   m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: 0cafdd4fdc2a4ed48abe810307ae8810, type: 3}
 --- !u!23 &743210953
 Renderer:
->>>>>>> origin/master
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 2300082, guid: 8df0cd77f0bae834d8d6ad5aaf486677,
     type: 2}
@@ -12895,20 +12857,9 @@ GameObject:
   m_PrefabInternal: {fileID: 503210741}
   serializedVersion: 4
   m_Component:
-<<<<<<< HEAD
-  - 4: {fileID: 953595290}
-  - 33: {fileID: 953595289}
-  - 23: {fileID: 953595288}
-  - 95: {fileID: 953595286}
-  - 82: {fileID: 953595292}
-  - 114: {fileID: 953595285}
-  - 54: {fileID: 953595291}
-  - 136: {fileID: 953595287}
-=======
   - 4: {fileID: 985394491}
   - 33: {fileID: 985394493}
   - 23: {fileID: 985394492}
->>>>>>> origin/master
   m_Layer: 0
   m_Name: tap
   m_TagString: Untagged
@@ -12916,53 +12867,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<< HEAD
---- !u!114 &953595285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400000, guid: 7ae9fb5bff56c154c95f63f7e096900f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1011050889}
-  m_GameObject: {fileID: 953595284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5228b618b13d76449bd58f4aab41d783, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bateryEnergyRecharge: 15
-  batteryPickUpClip: {fileID: 8300000, guid: 786678edde8375342b1df03cf682f287, type: 3}
---- !u!95 &953595286
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 9500000, guid: 7ae9fb5bff56c154c95f63f7e096900f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1011050889}
-  m_GameObject: {fileID: 953595284}
-  m_Enabled: 0
-  m_Avatar: {fileID: 9000000, guid: edd3d358b05cd6846a974d4ffd088218, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!136 &953595287
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 13600000, guid: 7ae9fb5bff56c154c95f63f7e096900f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1011050889}
-  m_GameObject: {fileID: 953595284}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: .0149999997
-  m_Height: .0198739059
-  m_Direction: 1
-  m_Center: {x: 0, y: 8.75122677e-18, z: .0145900138}
---- !u!23 &953595288
-=======
 --- !u!4 &985394491
 Transform:
   m_ObjectHideFlags: 0
@@ -12976,7 +12880,6 @@ Transform:
   m_Father: {fileID: 560919866}
   m_RootOrder: 0
 --- !u!23 &985394492
->>>>>>> origin/master
 Renderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 2300136, guid: cf9f14cad60e16741bedacd8f0a08866,
@@ -13002,76 +12905,6 @@ MeshFilter:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 3300136, guid: cf9f14cad60e16741bedacd8f0a08866,
     type: 2}
-  m_PrefabInternal: {fileID: 1011050889}
-  m_GameObject: {fileID: 953595284}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!82 &953595292
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8200000, guid: 7ae9fb5bff56c154c95f63f7e096900f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1011050889}
-  m_GameObject: {fileID: 953595284}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 786678edde8375342b1df03cf682f287, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
   m_PrefabInternal: {fileID: 503210741}
   m_GameObject: {fileID: 985394490}
   m_Mesh: {fileID: 4300002, guid: c9620876e0800fd4ba1ecfab40b84792, type: 3}
@@ -13710,6 +13543,7 @@ CanvasGroup:
   m_Alpha: 1
   m_Interactable: 0
   m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!114 &1045361508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13740,6 +13574,7 @@ Canvas:
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
+  m_OverrideSorting: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
 --- !u!1 &1061634417
@@ -26348,7 +26183,6 @@ MonoBehaviour:
     z: 20
   passagePrefab: {fileID: 652010435}
   wallPrefab: {fileID: 207308880}
-  erasedWalls: []
 --- !u!4 &2047329147
 Transform:
   m_ObjectHideFlags: 0
