@@ -43,19 +43,19 @@ public class GameManager : MonoBehaviour
         mazeInstanceFloor = Instantiate(mazePrefab) as Maze;
         mazeInstanceFloor.Generate(MazePos.Floor);
 
-        mazeInstanceCeil = Instantiate(mazePrefab) as Maze;
-        mazeInstanceCeil.Generate(MazePos.Ceil);
+        //mazeInstanceCeil = Instantiate(mazePrefab) as Maze;
+        //mazeInstanceCeil.Generate(MazePos.Ceil);
         //StartCoroutine(mazeInstanceCeil.Generate());
 
-        mazeInstanceCeil.transform.Translate(new Vector3(0, 5, 0));
-        mazeInstanceCeil.transform.Rotate(transform.right, 180f);
+        //mazeInstanceCeil.transform.Translate(new Vector3(0, 5, 0));
+        //mazeInstanceCeil.transform.Rotate(transform.right, 180f);
 
         mazeInstanceFloor.borrarParedCentralFija();
         mazeInstanceFloor.borrarParedAleatoria();
         mazeInstanceFloor.borrarParedAleatoria();
 
 
-        Object prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/GravityChanger.prefab", typeof(GameObject));
+        Object prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Battery.prefab", typeof(GameObject));
         for (int i = 0; i < 10; i++)
         {
             GameObject clone = Instantiate(prefab) as GameObject;
@@ -63,8 +63,8 @@ public class GameManager : MonoBehaviour
         }
         for (int i = 0; i < 10; i++)
         {
-            GameObject clone = Instantiate(prefab) as GameObject;
-            mazeInstanceCeil.ponerElementoEnLugarAleatorio(clone);
+            //GameObject clone = Instantiate(prefab) as GameObject;
+            //mazeInstanceCeil.ponerElementoEnLugarAleatorio(clone);
         }
         mazeInstanceFloor.crearPasillos();
     }
@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
     {
         StopAllCoroutines();
         Destroy(mazeInstanceFloor.gameObject);
-        Destroy(mazeInstanceCeil.gameObject);
+        //Destroy(mazeInstanceCeil.gameObject);
         BeginGame();
     }
 

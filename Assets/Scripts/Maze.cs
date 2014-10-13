@@ -278,7 +278,7 @@ public class Maze : MonoBehaviour {
             z = rnd.Next(0, size.z);
         }
         while (cellsWithElement.FindAll(cell => cell.x == x && cell.y == z).Count != 0);
-        Debug.Log("valores " + x + "  " + z);
+        Debug.Log("Lo puse en " + x + "  " + z);
         gameObject.transform.position = cells[x, z].transform.position;
         gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.5f * (int)mazePos, gameObject.transform.position.z);
         cellsWithElement.Add(new Vector2(x, z));

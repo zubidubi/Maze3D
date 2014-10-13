@@ -44,6 +44,11 @@ public class LightBehavior : MonoBehaviour {
     private void bateryDischarge()
     {
         bateryEnergy -= 0.1f;
+        if (bateryEnergy > 100)
+            bateryEnergy = 100;
+        GameObject batteryHUD = GameObject.FindGameObjectWithTag("batteryHUD");
+        ((GUIBarScript)batteryHUD.GetComponent("GUIBarScript")).SetNewValue(bateryEnergy / 100);
+        ((GUIBarScript)batteryHUD.GetComponent("GUIBarScript")).ForceUpdate();
         if (bateryEnergy <= 0)
         {
             light.enabled = false;
