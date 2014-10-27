@@ -6,13 +6,15 @@ TagManager:
   - character
   - walkableSurface
   - timer
-  - 
+  - screenText
+  - key
   - WorldStuff
   - batteryHUD
   - Lantern
   - soundManager
   - entrance
   - pTarget
+  - treasure
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

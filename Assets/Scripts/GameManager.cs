@@ -7,7 +7,8 @@ public class GameManager : MonoBehaviour
 {
 
     public Maze mazePrefab;
-    
+    public int BatterysPerMaze;
+    public int KeysPerMaze;
     private List<Maze> mazeInstancesFloor;
     private Maze mazeInstanceCeil;
 
@@ -53,7 +54,19 @@ public class GameManager : MonoBehaviour
         mazeInstancesFloor[0].borrarParedAleatoria(MazeDirection.South);
 
         GameObject entrance = GameObject.FindGameObjectWithTag("entrance");
-        entrance.transform.position = new Vector3(- 1.842f - mazeInstancesFloor[0].size.x/2, entrance.transform.position.y, entrance.transform.position.z);
+        //entrance.transform.position = new Vector3(- 1.842f - mazeInstancesFloor[0].size.x/2, entrance.transform.position.y, entrance.transform.position.z);
+        float zPos, xPos;
+        if (mazeInstancesFloor[0].size.z % 2 == 0)
+        {
+            zPos = 1f;
+            xPos = -1.8f -mazeInstancesFloor[0].size.x/2;
+        }
+        else
+        {
+            zPos = 0.5f;
+            xPos = -2.3f -mazeInstancesFloor[0].size.x/2;
+        }
+        entrance.transform.position = new Vector3(xPos, entrance.transform.position.y, zPos);
         
         float largoPasillo = 6;
         float desp = largoPasillo + mazeInstancesFloor[0].size.x;
@@ -69,20 +82,30 @@ public class GameManager : MonoBehaviour
 
 
 
-        Object prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Battery.prefab", typeof(GameObject));
-        for (int i = 0; i < 10; i++)
+        Object bat = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Battery.prefab", typeof(GameObject));
+        for (int i = 0; i < BatterysPerMaze; i++)
         {
             foreach (Maze maze in mazeInstancesFloor)
             {
-                GameObject clone = Instantiate(prefab) as GameObject;
+                GameObject clone = Instantiate(bat) as GameObject;
                 maze.ponerElementoEnLugarAleatorio(clone);
             }
         }
-        for (int i = 0; i < 10; i++)
+        Object key = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Key.prefab", typeof(GameObject));
+        for (int i = 0; i < KeysPerMaze; i++)
         {
-            //GameObject clone = Instantiate(prefab) as GameObject;
-            //mazeInstanceCeil.ponerElementoEnLugarAleatorio(clone);
+            foreach (Maze maze in mazeInstancesFloor)
+            {
+                GameObject clone = Instantiate(key) as GameObject;
+                maze.ponerElementoEnLugarAleatorio(clone);
+            }
         }
+        Object treasure = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Treasure.prefab", typeof(GameObject));
+        System.Random rnd = new System.Random();
+        
+        // Treasure to win..
+        mazeInstancesFloor[rnd.Next(0, 4)].ponerElementoEnLugarAleatorio(Instantiate(treasure) as GameObject);
+        
         mazeInstancesFloor[0].crearPasillos();
     }
 

@@ -285,7 +285,6 @@ public class Maze : MonoBehaviour {
 
     internal void borrarParedUnidaACentral(Vector2 vector2, MazeDirection direction)
     {
-        Debug.Log(vector2);
         //case MazeDirection.North:
         if(vector2.y == 0)
             eraseWall((int)vector2.x, (int)size.z-1);
