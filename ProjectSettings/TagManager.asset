@@ -6,7 +6,7 @@ TagManager:
   - character
   - walkableSurface
   - timer
-  - 
+  - screenText
   - WorldStuff
   - batteryHUD
   - Lantern
