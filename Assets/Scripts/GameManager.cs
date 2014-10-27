@@ -54,7 +54,19 @@ public class GameManager : MonoBehaviour
         mazeInstancesFloor[0].borrarParedAleatoria(MazeDirection.South);
 
         GameObject entrance = GameObject.FindGameObjectWithTag("entrance");
-        entrance.transform.position = new Vector3(- 1.842f - mazeInstancesFloor[0].size.x/2, entrance.transform.position.y, entrance.transform.position.z);
+        //entrance.transform.position = new Vector3(- 1.842f - mazeInstancesFloor[0].size.x/2, entrance.transform.position.y, entrance.transform.position.z);
+        float zPos, xPos;
+        if (mazeInstancesFloor[0].size.z % 2 == 0)
+        {
+            zPos = 1f;
+            xPos = -1.8f -mazeInstancesFloor[0].size.x/2;
+        }
+        else
+        {
+            zPos = 0.5f;
+            xPos = -2.3f -mazeInstancesFloor[0].size.x/2;
+        }
+        entrance.transform.position = new Vector3(xPos, entrance.transform.position.y, zPos);
         
         float largoPasillo = 6;
         float desp = largoPasillo + mazeInstancesFloor[0].size.x;
@@ -88,6 +100,12 @@ public class GameManager : MonoBehaviour
                 maze.ponerElementoEnLugarAleatorio(clone);
             }
         }
+        Object treasure = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Treasure.prefab", typeof(GameObject));
+        System.Random rnd = new System.Random();
+        
+        // Treasure to win..
+        mazeInstancesFloor[rnd.Next(0, 4)].ponerElementoEnLugarAleatorio(Instantiate(treasure) as GameObject);
+        
         mazeInstancesFloor[0].crearPasillos();
     }
 

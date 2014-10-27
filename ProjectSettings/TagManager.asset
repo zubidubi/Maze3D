@@ -7,11 +7,13 @@ TagManager:
   - walkableSurface
   - timer
   - screenText
+  - key
   - WorldStuff
   - batteryHUD
   - Lantern
   - soundManager
   - entrance
+  - treasure
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
