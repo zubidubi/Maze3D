@@ -3,7 +3,7 @@ using System.Collections;
 
 public class KeyManager : MonoBehaviour {
 
-    public int KeysToWin { get; set; }
+    public int KeysToWin;
     private int actualKeys;
 	// Use this for initialization
 	void Start () {
@@ -17,5 +17,13 @@ public class KeyManager : MonoBehaviour {
     public void keyFound()
     {
         actualKeys++; Debug.Log(actualKeys);
+    }
+
+    internal void tryWin()
+    {
+        if (actualKeys >= KeysToWin)
+            Application.LoadLevel("winGame");
+        else
+            Debug.Log("Faltan " + (KeysToWin - actualKeys) + " llaves nobato."); //mensaje de que faltan keys
     }
 }
