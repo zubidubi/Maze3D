@@ -229,8 +229,7 @@ public class Maze : MonoBehaviour {
         
         foreach (Vector2 coord in erasedWalls)
         {
-            Debug.Log(coord);
-            if (coord == erasedWalls[0])
+             if (coord == erasedWalls[0])
                 continue;
             MazeCell celda = cells[(int)coord.x, (int)coord.y];
             GameObject pasillo = Instantiate(prefab) as GameObject;
@@ -278,7 +277,6 @@ public class Maze : MonoBehaviour {
             z = rnd.Next(0, size.z);
         }
         while (cellsWithElement.FindAll(cell => cell.x == x && cell.y == z).Count != 0);
-        Debug.Log("Lo puse en " + x + "  " + z);
         gameObject.transform.position = cells[x, z].transform.position;
         gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.5f * (int)mazePos, gameObject.transform.position.z);
         cellsWithElement.Add(new Vector2(x, z));
@@ -287,6 +285,7 @@ public class Maze : MonoBehaviour {
 
     internal void borrarParedUnidaACentral(Vector2 vector2, MazeDirection direction)
     {
+        Debug.Log(vector2);
         //case MazeDirection.North:
         if(vector2.y == 0)
             eraseWall((int)vector2.x, (int)size.z-1);
