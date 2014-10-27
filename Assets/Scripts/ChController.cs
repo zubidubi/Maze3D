@@ -50,7 +50,8 @@ public class ChController : MonoBehaviour {
 
     void OnCollisionStay(Collision collisionInfo)
     {
-        isFlying = false;
+        if(collisionInfo.collider.tag == "walkableSurface") 
+            isFlying = false;
     }
     private void Jump()
     {
