@@ -5126,67 +5126,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 943502228}
   m_GameObject: {fileID: 545391112}
   m_Mesh: {fileID: 4300000, guid: c9620876e0800fd4ba1ecfab40b84792, type: 3}
-
---- !u!1001 &554858169
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 400000, guid: 8df0cd77f0bae834d8d6ad5aaf486677, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 8df0cd77f0bae834d8d6ad5aaf486677, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: .846360028
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 8df0cd77f0bae834d8d6ad5aaf486677, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 1.0122
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 8df0cd77f0bae834d8d6ad5aaf486677, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 8df0cd77f0bae834d8d6ad5aaf486677, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 8df0cd77f0bae834d8d6ad5aaf486677, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 8df0cd77f0bae834d8d6ad5aaf486677, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 8df0cd77f0bae834d8d6ad5aaf486677, type: 2}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 8df0cd77f0bae834d8d6ad5aaf486677, type: 2}
-      propertyPath: m_LocalScale.x
-      value: .930415034
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 8df0cd77f0bae834d8d6ad5aaf486677, type: 2}
-      propertyPath: m_LocalScale.y
-      value: .930415034
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 8df0cd77f0bae834d8d6ad5aaf486677, type: 2}
-      propertyPath: m_LocalScale.z
-      value: .930415034
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 8df0cd77f0bae834d8d6ad5aaf486677, type: 2}
-      propertyPath: m_TagString
-      value: entrance
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 8df0cd77f0bae834d8d6ad5aaf486677, type: 2}
-  m_RootGameObject: {fileID: 1088117626}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1 &571825511
 GameObject:
   m_ObjectHideFlags: 0
@@ -8091,7 +8030,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mazePrefab: {fileID: 2047329146}
-
   BatterysPerMaze: 8
   KeysPerMaze: 5
 --- !u!4 &924606047
