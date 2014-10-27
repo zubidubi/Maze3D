@@ -294,8 +294,8 @@ public class Maze : MonoBehaviour {
             eraseWall((int)vector2.x, 0);
         else if (vector2.x == size.x-1)
             eraseWall(0, (int)vector2.y);
+        else if (vector2.x == 0)
+            eraseWall(size.x-1, (int)vector2.y);
         //
-        
-
     }
 }

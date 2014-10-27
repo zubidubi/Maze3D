@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
 
     public Maze mazePrefab;
-
+    
     private List<Maze> mazeInstancesFloor;
     private Maze mazeInstanceCeil;
 
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     {
         if (seconds == 0)
         {
-            Application.LoadLevel("loseGame");
+            //Application.LoadLevel("loseGame");
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -52,12 +52,18 @@ public class GameManager : MonoBehaviour
         mazeInstancesFloor[0].borrarParedAleatoria(MazeDirection.South);
         mazeInstancesFloor[0].borrarParedAleatoria(MazeDirection.North);
 
-        mazeInstancesFloor[1].transform.position = new Vector3(mazeInstancesFloor[1].transform.position.x + 26, mazeInstancesFloor[1].transform.position.y, mazeInstancesFloor[1].transform.position.z);
-        mazeInstancesFloor[1].borrarParedUnidaACentral(mazeInstancesFloor[0].erasedWalls[0], MazeDirection.North);
-        mazeInstancesFloor[2].transform.position = new Vector3(mazeInstancesFloor[2].transform.position.x, mazeInstancesFloor[2].transform.position.y, mazeInstancesFloor[2].transform.position.z + 26);
-        mazeInstancesFloor[2].borrarParedUnidaACentral(mazeInstancesFloor[0].erasedWalls[1], MazeDirection.East);
-        mazeInstancesFloor[3].transform.position = new Vector3(mazeInstancesFloor[3].transform.position.x, mazeInstancesFloor[3].transform.position.y, mazeInstancesFloor[3].transform.position.z - 26);
-        mazeInstancesFloor[3].borrarParedUnidaACentral(mazeInstancesFloor[0].erasedWalls[2], MazeDirection.South);
+        GameObject entrance = GameObject.FindGameObjectWithTag("entrance");
+        entrance.transform.position = new Vector3(- 1.842f - mazeInstancesFloor[0].size.x/2, entrance.transform.position.y, entrance.transform.position.z);
+        
+        float largoPasillo = 6;
+        float desp = largoPasillo + mazeInstancesFloor[0].size.x;
+
+        mazeInstancesFloor[1].transform.position = new Vector3(mazeInstancesFloor[1].transform.position.x + desp, mazeInstancesFloor[1].transform.position.y, mazeInstancesFloor[1].transform.position.z);
+        mazeInstancesFloor[1].borrarParedUnidaACentral(mazeInstancesFloor[0].erasedWalls[0], MazeDirection.East);
+        mazeInstancesFloor[2].transform.position = new Vector3(mazeInstancesFloor[2].transform.position.x, mazeInstancesFloor[2].transform.position.y, mazeInstancesFloor[2].transform.position.z + desp);
+        mazeInstancesFloor[2].borrarParedUnidaACentral(mazeInstancesFloor[0].erasedWalls[1], MazeDirection.South);
+        mazeInstancesFloor[3].transform.position = new Vector3(mazeInstancesFloor[3].transform.position.x, mazeInstancesFloor[3].transform.position.y, mazeInstancesFloor[3].transform.position.z - desp);
+        mazeInstancesFloor[3].borrarParedUnidaACentral(mazeInstancesFloor[0].erasedWalls[2], MazeDirection.North);
         
         //mazeInstanceCeil.transform.Rotate(transform.right, 180f);
 
