@@ -7,7 +7,8 @@ public class GameManager : MonoBehaviour
 {
 
     public Maze mazePrefab;
-    
+    public int BatterysPerMaze;
+    public int KeysPerMaze;
     private List<Maze> mazeInstancesFloor;
     private Maze mazeInstanceCeil;
 
@@ -69,19 +70,23 @@ public class GameManager : MonoBehaviour
 
 
 
-        Object prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Battery.prefab", typeof(GameObject));
-        for (int i = 0; i < 10; i++)
+        Object bat = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Battery.prefab", typeof(GameObject));
+        for (int i = 0; i < BatterysPerMaze; i++)
         {
             foreach (Maze maze in mazeInstancesFloor)
             {
-                GameObject clone = Instantiate(prefab) as GameObject;
+                GameObject clone = Instantiate(bat) as GameObject;
                 maze.ponerElementoEnLugarAleatorio(clone);
             }
         }
-        for (int i = 0; i < 10; i++)
+        Object key = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Key.prefab", typeof(GameObject));
+        for (int i = 0; i < KeysPerMaze; i++)
         {
-            //GameObject clone = Instantiate(prefab) as GameObject;
-            //mazeInstanceCeil.ponerElementoEnLugarAleatorio(clone);
+            foreach (Maze maze in mazeInstancesFloor)
+            {
+                GameObject clone = Instantiate(key) as GameObject;
+                maze.ponerElementoEnLugarAleatorio(clone);
+            }
         }
         mazeInstancesFloor[0].crearPasillos();
     }
