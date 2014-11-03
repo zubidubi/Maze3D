@@ -5,7 +5,7 @@ public class SoundManagerScript : MonoBehaviour {
 
     public AudioClip FallScream;
     public AudioClip BatteryPickUp;
-
+    public AudioClip KeyPickUp;
     public void fallScream()
     {
         audio.PlayOneShot(FallScream);
@@ -14,5 +14,10 @@ public class SoundManagerScript : MonoBehaviour {
     public void batteryPickUp()
     {
         audio.PlayOneShot(BatteryPickUp);
+    }
+
+    public void keyPickUp()
+    {
+        audio.PlayOneShot(KeyPickUp);
     }
 }
