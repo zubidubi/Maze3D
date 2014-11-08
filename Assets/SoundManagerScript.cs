@@ -6,6 +6,8 @@ public class SoundManagerScript : MonoBehaviour {
     public AudioClip FallScream;
     public AudioClip BatteryPickUp;
     public AudioClip KeyPickUp;
+    public AudioClip throwPostItSound;
+
     public void fallScream()
     {
         audio.PlayOneShot(FallScream);
@@ -19,5 +21,10 @@ public class SoundManagerScript : MonoBehaviour {
     public void keyPickUp()
     {
         audio.PlayOneShot(KeyPickUp);
+    }
+
+    public void throwPostIt()
+    {
+        audio.PlayOneShot(throwPostItSound);
     }
 }
