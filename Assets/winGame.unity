@@ -1880,7 +1880,7 @@ Transform:
   m_PrefabInternal: {fileID: 1961621625}
   m_GameObject: {fileID: 1338521810}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -4.37113883e-08}
-  m_LocalPosition: {x: -8.73789978, y: -3.54450011, z: -1.95840001}
+  m_LocalPosition: {x: -5.09779978, y: -3.54450011, z: -1.95840001}
   m_LocalScale: {x: 20, y: 20, z: 20}
   m_Children:
   - {fileID: 22015540}
@@ -2504,7 +2504,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: dd6550ece43af764e8e9a802baa977e6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.73789978
+      value: -5.09779978
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: dd6550ece43af764e8e9a802baa977e6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2880,6 +2880,7 @@ GameObject:
   - 224: {fileID: 2085580811}
   - 223: {fileID: 2085580814}
   - 114: {fileID: 2085580813}
+  - 114: {fileID: 2085580812}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2909,6 +2910,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &2085580812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2085580810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b6e6635b3eee2e4fa9c2720b9bd076a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2085580813
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     {
         if (--seconds == 0) CancelInvoke("Countdown");
         textMesh.text = seconds.ToString();
-        elapsedTime.Subtract(new TimeSpan(0, 0, 1));
+        elapsedTime = elapsedTime.Add(new TimeSpan(0, 0, 1));
     }
     private void Update()
     {
