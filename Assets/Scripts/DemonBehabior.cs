@@ -4,7 +4,7 @@ using System.Collections;
 public class DemonBehabior : MonoBehaviour {
 
 	// Use this for initialization
-    bool win;
+    public bool Win;
 	void Start () 
     {
         InvokeRepeating("demonRawr", 1, 10);	
@@ -18,7 +18,7 @@ public class DemonBehabior : MonoBehaviour {
 
     private void demonRawr()
     {
-        if (win)
+        if (Win)
         {
             animation.Play("Jump");
             audio.Play();
