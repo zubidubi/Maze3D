@@ -17,7 +17,7 @@ public class Key : MonoBehaviour {
     {
         if (other.gameObject.tag != "character")
             return;
-        other.gameObject.GetComponent<KeyManager>().keyFound();
+        other.gameObject.GetComponent<ResourceManager>().keyFound();
         GameObject.FindGameObjectWithTag("soundManager").GetComponent<SoundManagerScript>().keyPickUp();
         Destroy(this.gameObject);
         

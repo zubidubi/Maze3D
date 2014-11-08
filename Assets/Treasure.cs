@@ -17,6 +17,6 @@ public class Treasure : MonoBehaviour {
     {
         if (other.gameObject.tag != "character")
             return;
-        other.gameObject.GetComponent<KeyManager>().tryWin();
+        other.gameObject.GetComponent<ResourceManager>().tryWin();
     }
 }
