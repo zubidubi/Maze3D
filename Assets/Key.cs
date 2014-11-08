@@ -15,7 +15,6 @@ public class Key : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("llave tocada");
         if (other.gameObject.tag != "character")
             return;
         other.gameObject.GetComponent<KeyManager>().keyFound();

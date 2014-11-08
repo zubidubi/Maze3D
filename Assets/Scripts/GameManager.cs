@@ -2,6 +2,8 @@
 using System.Collections;
 using UnityEditor;
 using System.Collections.Generic;
+using System.Timers;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,14 +13,17 @@ public class GameManager : MonoBehaviour
     public int KeysPerMaze;
     private List<Maze> mazeInstancesFloor;
     private Maze mazeInstanceCeil;
-
-    int seconds = 120;
+    const int MINUTES = 5;
+    public int seconds = 60 * MINUTES;
+    public static TimeSpan ElapsedTime { get { return elapsedTime; } }
+    private static TimeSpan elapsedTime;
     GUIText textMesh;
     private void Start()
     {
         mazeInstancesFloor = new List<Maze>();
         textMesh = GameObject.FindGameObjectWithTag("timer").GetComponent<GUIText>();
         textMesh.text = seconds.ToString();
+        elapsedTime = new TimeSpan();
         BeginGame();
 
         InvokeRepeating("Countdown", 1.0f, 1.0f);
@@ -27,12 +32,13 @@ public class GameManager : MonoBehaviour
     {
         if (--seconds == 0) CancelInvoke("Countdown");
         textMesh.text = seconds.ToString();
+        elapsedTime.Subtract(new TimeSpan(0, 0, 1));
     }
     private void Update()
     {
         if (seconds == 0)
         {
-            //Application.LoadLevel("loseGame");
+            Application.LoadLevel("loseGame");
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -82,7 +88,7 @@ public class GameManager : MonoBehaviour
 
 
 
-        Object bat = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Battery.prefab", typeof(GameObject));
+        UnityEngine.Object bat = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Battery.prefab", typeof(GameObject));
         for (int i = 0; i < BatterysPerMaze; i++)
         {
             foreach (Maze maze in mazeInstancesFloor)
@@ -91,7 +97,7 @@ public class GameManager : MonoBehaviour
                 maze.ponerElementoEnLugarAleatorio(clone);
             }
         }
-        Object key = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Key.prefab", typeof(GameObject));
+        UnityEngine.Object key = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Key.prefab", typeof(GameObject));
         for (int i = 0; i < KeysPerMaze; i++)
         {
             foreach (Maze maze in mazeInstancesFloor)
@@ -100,7 +106,7 @@ public class GameManager : MonoBehaviour
                 maze.ponerElementoEnLugarAleatorio(clone);
             }
         }
-        Object treasure = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Treasure.prefab", typeof(GameObject));
+        UnityEngine.Object treasure = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Treasure.prefab", typeof(GameObject));
         System.Random rnd = new System.Random();
         
         // Treasure to win..
@@ -111,12 +117,10 @@ public class GameManager : MonoBehaviour
 
     private void RestartGame() 
     {
+        elapsedTime = new TimeSpan();
         StopAllCoroutines();
         Destroy(mazeInstancesFloor[0].gameObject);
         //Destroy(mazeInstanceCeil.gameObject);
         BeginGame();
     }
-
-
-
 }
