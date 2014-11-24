@@ -33,7 +33,7 @@ public class colisionController : MonoBehaviour {
 
         /*
         if (lastGravityChange.AddSeconds(secondsRefresh) < DateTime.Now)
-        {*/
+        {*//*
         if (other.tag == "walkableSurface")
         {
             WallScript wallScript = other.gameObject.GetComponent<WallScript>();
@@ -50,7 +50,7 @@ public class colisionController : MonoBehaviour {
 
                 lastNormal = wallScript.normal;
             }
-        }
+        }*/
 	}
     /*
     private void changeGravity(Collider other)
