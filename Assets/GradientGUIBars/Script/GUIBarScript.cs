@@ -92,6 +92,9 @@ public class GUIBarScript : MonoBehaviour {
 			GUI.Label(new Rect(Position.x + TextOffset.x,Position.y + TextOffset.y,ValueBar.width * ScaleSize,ValueBar.height * ScaleSize),TextString,LabelStyle);
 
 		}
+
+        //Auto set Position based on current resolution
+        Position = new Vector2((float)(Screen.width * 0.8), (float)(Screen.height * 0.8));
 	}
 
 	//this method will redraw the bar
