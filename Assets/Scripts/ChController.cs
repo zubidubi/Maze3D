@@ -14,7 +14,7 @@ public class ChController : MonoBehaviour {
 
     public float Speed = 5.0f;
     public Vector3 MoveDirection = Vector3.zero;
-
+    public static bool CanUseInput = true;
     void Start(){
         gravityNormal = true;
 
@@ -32,6 +32,8 @@ public class ChController : MonoBehaviour {
 
     void Update () 
     {
+        if (!CanUseInput)
+            return;
         if (Input.GetButtonDown("Jump") && CanJump && !isFlying)
         {
             isFlying = true;

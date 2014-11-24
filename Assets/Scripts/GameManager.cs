@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public int BatterysPerMaze;
     public int KeysPerMaze;
     public int DemonsPerMaze;
+    public int FiresPerMaze;
     private List<Maze> mazeInstancesFloor;
     private Maze mazeInstanceCeil;
     const int MINUTES = 5;
@@ -115,6 +116,16 @@ public class GameManager : MonoBehaviour
             {
                 GameObject clone = Instantiate(demon) as GameObject;
                 clone.gameObject.GetComponent<AI>().player = GameObject.FindGameObjectWithTag("character").transform;
+                maze.ponerElementoEnLugarAleatorio(clone);
+            }
+        }
+
+        UnityEngine.Object fire = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Fire.prefab", typeof(GameObject));
+        for (int i = 0; i < FiresPerMaze; i++)
+        {
+            foreach (Maze maze in mazeInstancesFloor)
+            {
+                GameObject clone = Instantiate(fire) as GameObject;
                 maze.ponerElementoEnLugarAleatorio(clone);
             }
         }
