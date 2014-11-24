@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public Maze mazePrefab;
     public int BatterysPerMaze;
     public int KeysPerMaze;
+    public int DemonsPerMaze;
     private List<Maze> mazeInstancesFloor;
     private Maze mazeInstanceCeil;
     const int MINUTES = 5;
@@ -25,7 +26,7 @@ public class GameManager : MonoBehaviour
         textMesh.text = seconds.ToString();
         elapsedTime = new TimeSpan();
         BeginGame();
-
+        Pathfinder.Instance.StartNow();
         InvokeRepeating("Countdown", 1.0f, 1.0f);
     }
     private void Countdown()
@@ -106,6 +107,18 @@ public class GameManager : MonoBehaviour
                 maze.ponerElementoEnLugarAleatorio(clone);
             }
         }
+
+        UnityEngine.Object demon = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Demon.prefab", typeof(GameObject));
+        for (int i = 0; i < DemonsPerMaze; i++)
+        {
+            foreach (Maze maze in mazeInstancesFloor)
+            {
+                GameObject clone = Instantiate(demon) as GameObject;
+                clone.gameObject.GetComponent<AI>().player = GameObject.FindGameObjectWithTag("character").transform;
+                maze.ponerElementoEnLugarAleatorio(clone);
+            }
+        }
+
         UnityEngine.Object treasure = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Treasure.prefab", typeof(GameObject));
         System.Random rnd = new System.Random();
         

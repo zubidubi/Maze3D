@@ -39,7 +39,7 @@ public class ResourceManager : MonoBehaviour {
         keyCountUI.text = actualKeys + "/" + KeysToWin;
 
         postItCountUI = GameObject.FindGameObjectWithTag("postItCount").GetComponent<Text>();
-        this.actualPostIt = 10;
+        this.ActualPostIt = 10;
     }
 
     // Update is called once per frame
