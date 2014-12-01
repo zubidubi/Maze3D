@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEditor;
+using System.Collections.Generic;
+using System.Timers;
+using System;
 public class MiniMapScript : MonoBehaviour {
 
 	// Use this for initialization
@@ -12,9 +15,9 @@ public class MiniMapScript : MonoBehaviour {
     public GUIStyle miniMap;
     //Two transform variables, one for the player's and the enemy's,
     public Transform player;
-    public Transform demon;
-    public Transform key;
-    public Transform battery;
+    public List<Transform> demons;
+    public List<Transform> keys;
+    public List<Transform> batteries;
     public Transform treasure;
     //Icon images for the player and enemy(s) on the map.
     public GUIStyle demonIcon;
@@ -29,10 +32,10 @@ public class MiniMapScript : MonoBehaviour {
     public int mapWidth = 200;
     public int mapHeight = 200;
     //Width and Height of your scene, or the resolution of your terrain.
-    public int sceneWidth = 1920;
-    public int sceneHeight = 1080;
+    public int sceneWidth = 60;
+    public int sceneHeight = 51;
     //The size of your player's and enemy's icon on the map.
-    int iconSize = 50;
+    int iconSize = 20;
     private int iconHalfSize;
 
     void Update () {
@@ -40,26 +43,41 @@ public class MiniMapScript : MonoBehaviour {
         iconHalfSize = iconSize/2;
     }
 
-    float GetMapPos(float pos, float mapSize, float sceneSize)
+    float GetMapPosX(float pos, float mapSize, float sceneSize)
     {
-        return pos * mapSize / sceneSize;
+        return (((pos * mapSize / sceneSize) * -1) - iconHalfSize) + (mapWidth / 2);
     }
 
+    float GetMapPosY(float pos, float mapSize, float sceneSize)
+    {
+        return (((pos * mapSize / sceneSize) + iconHalfSize) * -1) + (mapHeight);
+    }
 
     void OnGUI()
     {
         GUI.BeginGroup(new Rect(mapOffSetX, mapOffSetY, mapWidth, mapHeight), miniMap);
-        float pX = GetMapPos(transform.position.x, mapWidth, sceneWidth);
-        float pZ = GetMapPos(transform.position.z, mapHeight, sceneHeight);
-        float playerMapX = pX - iconHalfSize;
-        float playerMapZ = ((pZ * -1) - iconHalfSize) + mapHeight;
-        GUI.Box(new Rect(playerMapX, playerMapZ, iconSize, iconSize), "", playerIcon);
+        float playerMapX = GetMapPosX(transform.position.z, mapWidth, sceneWidth);
+        float playerMapY = GetMapPosY(transform.position.x + 20, mapHeight, sceneHeight);
+        GUI.Box(new Rect(playerMapX, playerMapY, iconSize, iconSize), "", playerIcon);
 
-        float sX = GetMapPos(demon.transform.position.x, mapWidth, sceneWidth);
-        float sZ = GetMapPos(demon.transform.position.z, mapHeight, sceneHeight);
-        float enemyMapX = sX - iconHalfSize;
-        float enemyMapZ = ((sZ * -1) - iconHalfSize) + mapHeight;
-        GUI.Box(new Rect(enemyMapX, enemyMapZ, iconSize, iconSize), "", demonIcon);
+        /*foreach(Transform demon in this.demons)
+        {
+            float enemyMapX = GetMapPosX(demon.transform.position.z, mapWidth, sceneWidth);
+            float enemyMapY = GetMapPosY(demon.transform.position.x + 20, mapHeight, sceneHeight);
+            GUI.Box(new Rect(enemyMapX, enemyMapY, iconSize, iconSize), "", demonIcon);
+        }*/
+
+        foreach (Transform key in this.keys)
+        {
+            float keyMapX = GetMapPosX(key.transform.position.z, mapWidth, sceneWidth);
+            float keyMapY = GetMapPosY(key.transform.position.x + 20, mapHeight, sceneHeight);
+            GUI.Box(new Rect(keyMapX, keyMapY, iconSize, iconSize), "", keyIcon);
+        }
+
+        float treasureMapX = GetMapPosX(treasure.transform.position.z, mapWidth, sceneWidth);
+        float treasureMapY = GetMapPosY(treasure.transform.position.x + 20, mapHeight, sceneHeight);
+        GUI.Box(new Rect(treasureMapX, treasureMapY, iconSize, iconSize), "", treasureIcon);
+        
         GUI.EndGroup();
     }
 
