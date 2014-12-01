@@ -135,8 +135,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_LocalRotation: {x: 0, y: .793309748, z: 0, w: .608818352}
-  m_LocalPosition: {x: -21.3659992, y: 3.06850004, z: 1.36099994}
+  m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106829}
+  m_LocalPosition: {x: -19.3320007, y: 3.06850004, z: 0}
   m_LocalScale: {x: .200000003, y: .200000003, z: .200000003}
   m_Children:
   - {fileID: 400000}
@@ -761,10 +761,10 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   player: {fileID: 400002}
-  demon: {fileID: 400006, guid: dd6550ece43af764e8e9a802baa977e6, type: 3}
-  key: {fileID: 400002, guid: 3c8f4210262dbae4ebbc66e2f4bb6678, type: 2}
-  battery: {fileID: 400000, guid: 7ae9fb5bff56c154c95f63f7e096900f, type: 2}
-  treasure: {fileID: 400000, guid: 89ddcdd91b328924cb39bfb11754ad4a, type: 2}
+  demons: []
+  keys: []
+  batteries: []
+  treasure: {fileID: 0}
   demonIcon:
     m_Name: 
     m_Normal:
@@ -886,7 +886,7 @@ MonoBehaviour:
   keyIcon:
     m_Name: 
     m_Normal:
-      m_Background: {fileID: 2800000, guid: 006cbe23746298a4b8d690c6dee0d52e, type: 3}
+      m_Background: {fileID: 2800000, guid: 23054207486bd314babd977caf34e5a0, type: 3}
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
@@ -945,7 +945,7 @@ MonoBehaviour:
   treasureIcon:
     m_Name: 
     m_Normal:
-      m_Background: {fileID: 2800000, guid: 9e4e2472ef161104f807c8a9214efbc4, type: 3}
+      m_Background: {fileID: 2800000, guid: 461b7baedeea6174282260d87c9cb9e8, type: 3}
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
@@ -1064,8 +1064,8 @@ MonoBehaviour:
   mapOffSetY: 510
   mapWidth: 200
   mapHeight: 200
-  sceneWidth: 600
-  sceneHeight: 600
+  sceneWidth: 60
+  sceneHeight: 51
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1

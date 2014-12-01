@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
         
         //mazeInstanceCeil.transform.Rotate(transform.right, 180f);
 
-
+        MiniMapScript miniMapScript = GameObject.FindGameObjectWithTag("character").GetComponent<MiniMapScript>();
 
         UnityEngine.Object bat = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Battery.prefab", typeof(GameObject));
         for (int i = 0; i < BatterysPerMaze; i++)
@@ -97,6 +97,8 @@ public class GameManager : MonoBehaviour
             {
                 GameObject clone = Instantiate(bat) as GameObject;
                 maze.ponerElementoEnLugarAleatorio(clone);
+
+                miniMapScript.batteries.Add(clone.transform);
             }
         }
         UnityEngine.Object key = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Key.prefab", typeof(GameObject));
@@ -106,6 +108,8 @@ public class GameManager : MonoBehaviour
             {
                 GameObject clone = Instantiate(key) as GameObject;
                 maze.ponerElementoEnLugarAleatorio(clone);
+                miniMapScript.keys.Add(clone.transform);
+
             }
         }
 
@@ -117,6 +121,9 @@ public class GameManager : MonoBehaviour
                 GameObject clone = Instantiate(demon) as GameObject;
                 clone.gameObject.GetComponent<AI>().player = GameObject.FindGameObjectWithTag("character").transform;
                 maze.ponerElementoEnLugarAleatorio(clone);
+
+                miniMapScript.demons.Add(clone.transform);
+
             }
         }
 
@@ -134,7 +141,10 @@ public class GameManager : MonoBehaviour
         System.Random rnd = new System.Random();
         
         // Treasure to win..
-        mazeInstancesFloor[rnd.Next(0, 4)].ponerElementoEnLugarAleatorio(Instantiate(treasure) as GameObject);
+        GameObject treasureGO = Instantiate(treasure) as GameObject;
+        mazeInstancesFloor[rnd.Next(0, 4)].ponerElementoEnLugarAleatorio(treasureGO);
+
+        miniMapScript.treasure = treasureGO.transform;
         
         mazeInstancesFloor[0].crearPasillos();
     }
