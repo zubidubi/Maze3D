@@ -8,8 +8,19 @@ public class ButtonFunctions : MonoBehaviour {
         Application.LoadLevel("maze");
     }
 
+    public void credits()
+    {
+        Application.LoadLevel("credits");
+    }
+
+    public void mainMenu()
+    {
+        Application.LoadLevel("start");
+    }
+
     public void exitGame()
     {
         Application.Quit();
     }
+
 }
