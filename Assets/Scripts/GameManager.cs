@@ -4,6 +4,7 @@ using UnityEditor;
 using System.Collections.Generic;
 using System.Timers;
 using System;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,11 +20,11 @@ public class GameManager : MonoBehaviour
     public int seconds = 60 * MINUTES;
     public static TimeSpan ElapsedTime { get { return elapsedTime; } }
     private static TimeSpan elapsedTime;
-    GUIText textMesh;
+    Text textMesh;
     private void Start()
     {
         mazeInstancesFloor = new List<Maze>();
-        textMesh = GameObject.FindGameObjectWithTag("timer").GetComponent<GUIText>();
+        textMesh = GameObject.FindGameObjectWithTag("timer").GetComponent<Text>();
         textMesh.text = seconds.ToString();
         elapsedTime = new TimeSpan();
         BeginGame();
