@@ -108431,7 +108431,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: efdf155e29b063e48a1a315326175481, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: efdf155e29b063e48a1a315326175481, type: 2}
       propertyPath: Tilesize
@@ -109659,7 +109659,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 43ef8fcff80980b4585ecd6f220a022c, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 43ef8fcff80980b4585ecd6f220a022c, type: 2}

@@ -72,7 +72,7 @@ public class ChController : MonoBehaviour {
     }
     public void changeGravity()
     {   
-        constantForce.force = new Vector3(constantForce.force.x, -constantForce.force.y, constantForce.force.z);
+        //constantForce.force = new Vector3(constantForce.force.x, -constantForce.force.y, constantForce.force.z);
     }
 
     private bool IsGrounded()
