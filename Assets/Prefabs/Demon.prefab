@@ -1851,7 +1851,7 @@ MonoBehaviour:
   player: {fileID: 0}
   maxRangePatrol: 0
   tamanoPaso: .300000012
-  distanceToStop: 1
+  distanceToStop: .600000024
   idleAnimation: Idle
   moveAnimation: Walk
   patrol: 0

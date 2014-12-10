@@ -14,7 +14,7 @@ public class EnemyCollide : MonoBehaviour {
         if (loosing)
         {
         Quaternion newRotation = Quaternion.LookRotation(this.transform.position) * Quaternion.Euler(0, 90, 0);
-        character.transform.rotation = Quaternion.Slerp(character.transform.rotation, newRotation, (float)(Time.deltaTime * 1.0));
+        character.transform.rotation = Quaternion.Slerp(character.transform.rotation, newRotation, (float)(Time.deltaTime * 3.0));
         }
         /*if (loosing)
             character.transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(character.transform.forward, transform.position - character.transform.position, 10, 0.0f));

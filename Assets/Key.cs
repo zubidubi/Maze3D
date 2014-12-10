@@ -19,7 +19,7 @@ public class Key : MonoBehaviour {
             return;
         other.gameObject.GetComponent<ResourceManager>().keyFound();
         GameObject.FindGameObjectWithTag("soundManager").GetComponent<SoundManagerScript>().keyPickUp();
+        GameObject.FindGameObjectWithTag("character").GetComponent<MiniMapScript>().removeKey(this.transform);
         Destroy(this.gameObject);
-        
     }
 }

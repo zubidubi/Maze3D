@@ -39,7 +39,6 @@ public class MiniMapScript : MonoBehaviour {
     private int iconHalfSize;
 
     void Update () {
-        
         iconHalfSize = iconSize/2;
     }
 
@@ -80,6 +79,15 @@ public class MiniMapScript : MonoBehaviour {
         
         GUI.EndGroup();
     }
-
-
+    public void removeKey(Transform keyTransform)
+    {
+        for (int i=0; i<this.keys.Count; i++)
+        {
+            if (this.keys[i].position == keyTransform.position)
+            {
+                this.keys.RemoveAt(i);
+                break;
+            }
+        }
+    }
 }
