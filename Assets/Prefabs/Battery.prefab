@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5228b618b13d76449bd58f4aab41d783, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bateryEnergyRecharge: 15
+  bateryEnergyRecharge: 25
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1

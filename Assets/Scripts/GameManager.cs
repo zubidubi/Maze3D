@@ -21,8 +21,10 @@ public class GameManager : MonoBehaviour
     public static TimeSpan ElapsedTime { get { return elapsedTime; } }
     private static TimeSpan elapsedTime;
     Text textMesh;
+    public bool showCursor;
     private void Start()
     {
+        Screen.showCursor = showCursor;
         mazeInstancesFloor = new List<Maze>();
         textMesh = GameObject.FindGameObjectWithTag("timer").GetComponent<Text>();
         textMesh.text = seconds.ToString();
