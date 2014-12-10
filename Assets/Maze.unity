@@ -11498,7 +11498,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400004, guid: 21ae7145637b4414db5175eab04b1d54, type: 2}
       propertyPath: sensitivityX
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11400004, guid: 21ae7145637b4414db5175eab04b1d54, type: 2}
       propertyPath: sensitivityY
@@ -51095,12 +51095,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mazePrefab: {fileID: 2047329146}
-  BatterysPerMaze: 12
+  BatterysPerMaze: 8
   KeysPerMaze: 2
   DemonsPerMaze: 1
   FiresPerMaze: 16
   seconds: 900
   showCursor: 0
+  Battery: {fileID: 100002, guid: 7ae9fb5bff56c154c95f63f7e096900f, type: 2}
+  Key: {fileID: 100002, guid: 3c8f4210262dbae4ebbc66e2f4bb6678, type: 2}
+  Demon: {fileID: 100122, guid: c44890b262bc76e44a148f069c63cb17, type: 2}
+  Fire: {fileID: 100002, guid: 493f47220bc9d194996e3d80f23e5a75, type: 2}
+  Treasure: {fileID: 100000, guid: 89ddcdd91b328924cb39bfb11754ad4a, type: 2}
 --- !u!4 &924606047
 Transform:
   m_ObjectHideFlags: 0
@@ -63876,6 +63881,10 @@ Prefab:
       propertyPath: size.z
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 78d55c7ab476b4749a1c52ed6f232dd1, type: 2}
+      propertyPath: Pasillo
+      value: 
+      objectReference: {fileID: 100000, guid: cf9f14cad60e16741bedacd8f0a08866, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 78d55c7ab476b4749a1c52ed6f232dd1, type: 2}
   m_RootGameObject: {fileID: 2047329145}
@@ -89322,7 +89331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   axes: 0
-  sensitivityX: 1
+  sensitivityX: 3
   sensitivityY: 3
   minimumX: -360
   maximumX: 360
@@ -89416,7 +89425,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1603232603}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 559f4644948d3c44b968a7f5748ce0c2, type: 3}
   m_Name: 
@@ -114002,6 +114011,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cellPrefab: {fileID: 603969135}
+  Pasillo: {fileID: 100000, guid: cf9f14cad60e16741bedacd8f0a08866, type: 2}
   generationStepDelay: .00999999978
   size:
     x: 10

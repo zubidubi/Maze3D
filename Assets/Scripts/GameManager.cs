@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+#if UNITY_EDITOR 
 using UnityEditor;
+#endif
 using System.Collections.Generic;
 using System.Timers;
 using System;
@@ -22,6 +24,11 @@ public class GameManager : MonoBehaviour
     private static TimeSpan elapsedTime;
     Text textMesh;
     public bool showCursor;
+    public GameObject Battery;
+    public GameObject Key;
+    public GameObject Demon;
+    public GameObject Fire;
+    public GameObject Treasure;
     private void Start()
     {
         Screen.showCursor = showCursor;
@@ -93,7 +100,7 @@ public class GameManager : MonoBehaviour
 
         MiniMapScript miniMapScript = GameObject.FindGameObjectWithTag("character").GetComponent<MiniMapScript>();
 
-        UnityEngine.Object bat = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Battery.prefab", typeof(GameObject));
+        UnityEngine.Object bat = Battery; //AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Battery.prefab", typeof(GameObject));
         for (int i = 0; i < BatterysPerMaze; i++)
         {
             foreach (Maze maze in mazeInstancesFloor)
@@ -104,7 +111,7 @@ public class GameManager : MonoBehaviour
                 miniMapScript.batteries.Add(clone.transform);
             }
         }
-        UnityEngine.Object key = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Key.prefab", typeof(GameObject));
+        UnityEngine.Object key = Key;// AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Key.prefab", typeof(GameObject));
         for (int i = 0; i < KeysPerMaze; i++)
         {
             foreach (Maze maze in mazeInstancesFloor)
@@ -116,7 +123,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        UnityEngine.Object demon = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Demon.prefab", typeof(GameObject));
+        UnityEngine.Object demon = Demon;// AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Demon.prefab", typeof(GameObject));
         for (int i = 0; i < DemonsPerMaze; i++)
         {
             foreach (Maze maze in mazeInstancesFloor)
@@ -130,7 +137,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        UnityEngine.Object fire = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Fire.prefab", typeof(GameObject));
+        UnityEngine.Object fire = Fire;// AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Fire.prefab", typeof(GameObject));
         for (int i = 0; i < FiresPerMaze; i++)
         {
             foreach (Maze maze in mazeInstancesFloor)
@@ -140,7 +147,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        UnityEngine.Object treasure = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Treasure.prefab", typeof(GameObject));
+        UnityEngine.Object treasure = Treasure;// AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Treasure.prefab", typeof(GameObject));
         System.Random rnd = new System.Random();
         
         // Treasure to win..

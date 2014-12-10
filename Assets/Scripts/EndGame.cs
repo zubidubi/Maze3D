@@ -6,6 +6,7 @@ public class EndGame : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        Screen.showCursor = true;
         GameObject.FindGameObjectWithTag("timeElapsed").GetComponent<Text>().text = GameManager.ElapsedTime.Minutes + ":" + GameManager.ElapsedTime.Seconds.ToString("00");
 	}
 	

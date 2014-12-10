@@ -2,13 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+#if UNITY_EDITOR 
 using UnityEditor;
+#endif
 
 public class Maze : MonoBehaviour {
 
     //Componente de las celdas a generar
     public MazeCell cellPrefab;
-
+    public GameObject Pasillo;
     //Matriz bidimensional que contiene las celdas
     private MazeCell[,] cells;
 
@@ -224,7 +226,7 @@ public class Maze : MonoBehaviour {
 
     internal void crearPasillos()
     {
-        UnityEngine.Object prefab = AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Pasillo.prefab", typeof(GameObject));
+        UnityEngine.Object prefab = Pasillo;// AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Pasillo.prefab", typeof(GameObject));
         List<GameObject> pasillos = new List<GameObject>();
         
         foreach (Vector2 coord in erasedWalls)
